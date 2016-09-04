@@ -8,10 +8,15 @@ const win = doc.defaultView
 global.document = doc
 global.window = win
 
-Object.keys(window).forEach((key) => {
-  if (!key in global) {
-    global[key] = window[key]
-  }
-})
+propagateToGlobal(win)
 
 chai.use(chaiImmutable)
+
+function propagateToGlobal(window) {
+  for (let key in window) {
+    if (!window.hasOwnProperty(key)) continue
+    if (key in global) continue
+
+    global[key] = window[key]
+  }
+}
