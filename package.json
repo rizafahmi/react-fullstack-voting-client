@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter nyan --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
-    "test:watch": "npm run test --watch"
+    "test": "mocha --reporter nyan --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\" --recursive test/",
+    "test:watch": "npm run test --watch --recursive ./test/"
   },
   "keywords": [],
   "author": "",
